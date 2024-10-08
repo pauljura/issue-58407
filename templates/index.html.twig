@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <p>{{ type }}: {{ message }}</p>
+        {% endfor %}
+    {% endfor %}
+    {{ form_errors(form) }}
+    {{ form_start(form) }}
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.code) }}
+    <button type="submit">Submit</button>
+    {{ form_end(form) }}
+{% endblock %}
